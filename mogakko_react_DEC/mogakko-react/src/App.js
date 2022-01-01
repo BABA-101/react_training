@@ -1,42 +1,38 @@
 import React, { useState } from 'react'
 import Button from './Button'
-import Beggar from './Beggar.png';
-import Layout from './Layout'
+import Dan from './99dan'
 
 function App() {
-  const [money, setMoney] = useState(0);
+  const [number, setNumber] = useState(0);
 
   function Add() {
-    setMoney(money + 500);
+    setNumber(number + 1);
   }
 
   function Sub() {
-    setMoney(money - 500);
+    setNumber(number - 1);
   }
 
-  function randomcul() {
-    if (money <= 0)
-      alert("돈없으면 가라");
-    let a = Math.round(Math.random())
-    if (a === 1)
-      setMoney(money * 10);
-    else if (a === 0)
-      setMoney(money / 100);
+  function RandNum() {
+    let a = Math.floor(Math.random() * 10) //Math.floor(n)): n보다 크지 않은 최대의 정수 반환
+    // rand: 50% 확률로 a를 number에 더하거나 뺀다.
+    let rand = Math.round(Math.random())
+    if (rand === 1)
+      setNumber(number + a);
+    else
+      setNumber(number - a);
   }
 
   return (
     <center>
-      <Layout>
-        <h1>거지키우기</h1>
-        <img src={Beggar} width="300px" height="300px" alt='Beggar' />
-        <div>남은 돈: {money} </div> <br></br>
-        {/* Button 컴포넌트에 onClike={Add}, text="구걸하기"를 인자로 주어 호출.*/}
-        <Button onClick={Add} text="구걸하기" />
-        <Button onClick={Sub} text="돈뿌리기" />
-        <Button onClick={randomcul} text="도박하기" />
-      </Layout>
+      {/* Button 컴포넌트에 onClike={Add}, text="+1"를 인자로 주어 호출. => props*/}
+      <Dan number={number}>
+        <div>구구단? 아니, {number}구단!</div>
+      </Dan>
+      <Button onClick={Add} text="+1"></Button>
+      <Button onClick={Sub} text="-1"></Button>
+      <Button onClick={RandNum} text="Random"></Button>
     </center>
-
   )
 }
 export default App;
