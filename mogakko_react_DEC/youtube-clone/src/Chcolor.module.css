@@ -1,0 +1,17 @@
+.true{
+    width:300px;
+    height: 500px;
+    border:3px solid black;
+    background-color: blue;
+    font-family: "빙그레체Ⅱ";
+    font-size: 24px;
+}
+
+.false{
+    width:300px;
+    height: 500px;
+    border:3px solid black;
+    background-color:red;
+    font-family: "빙그레체Ⅱ";
+    font-size: 24px;
+}
